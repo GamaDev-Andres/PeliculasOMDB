@@ -1,0 +1,10 @@
+.peliculas-populares {
+    background-color: $nc;
+    height: 100vh;
+    padding: 1rem 0;
+    width: 100%;
+    .contenedor-peliculas {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

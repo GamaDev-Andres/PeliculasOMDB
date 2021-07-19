@@ -1,18 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- FONTAWESOME -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <title>Practica OMDB</title>
-    </head>
-    <body></body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../src/img/peli.ico" type="image/x-icon">
+    <!-- FUENTES GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- glide -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css"
+        integrity="sha512-wYsVD8ho6rJOAo1Xf92gguhOGQ+aWgxuyKydjyEax4bnuEmHUt6VGwgpUqN8VlB4w50d0nt+ZL+3pgaFMAmdNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css"
+        integrity="sha512-wCwx+DYp8LDIaTem/rpXubV/C1WiNRsEVqoztV0NZm8tiTvsUeSlA/Uz02VTGSiqfzAHD4RnqVoevMcRZgYEcQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Practica OMDB</title>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor-header">
+            <!-- NAVEGACION -->
+            <nav class="navegacion">
+                <div class="menu-hamburguesa">
+                    <h1>MISPELIS</h1>
+                    <button aria-label="Abrir Menu" title="Abrir Menu" class="boton-abrir"><i
+                            class="fas fa-bars"></i></button>
+                </div>
+                <div class="contenedor-menu">
+                    <ul class="lista-menu">
+                        <li class="cerrar-menu">
+                            <button class="boton-cerrar" aria-label="Cerrar Menu" title="Cerrar Menu"><i
+                                    class="fas fa-times-circle"></i></button>
+                        </li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li>
+                            <a href="peliculas.html">Peliculas</a>
+                        </li>
+                        <li class="li-logo">
+                            <a class="logo" href="index.html">
+                                <h1>MISPELIS</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="series.html">Series</a>
+                        </li>
+                        <li><a href="vermastarde.html">Mi lista</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- PRESENTACION -->
+            <div class="contenedor-presentacion">
+                <div class="presentacion-interaccion">
+                    <div class="texto-presentacion">
+                        <h2>Peliculas y Series gratis Online</h2>
+                        <p>
+                            En MisPelis podras disfrutar del mejor
+                            entretenimiento gratis con la mas alta calidad
+                            disponible (HD o Full HD) y desde cualquier
+                            dispositivo.
+                        </p>
+                    </div>
+                    <form id="search-presentacion">
+                        <div class="contenedor-buscador">
+                            <div class="buscador-presentacion buscador">
+                                <input type="search" placeholder="Escribe y pulsa enter" />
+                            </div>
+                            <button class="btn-search-presentacion">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="slider-populares">
+                    <div class="glide">
+                        <div data-glide-el="track" class="glide__track">
+                            <ul class="slider-presentacion glide__slides">
+                                <li class="glide__slide lista-presentacion">
+
+                                </li>
+                                <li class="glide__slide lista-presentacion">
+
+                                </li>
+                                <li class="glide__slide lista-presentacion">
+
+
+                                </li>
+                                <li class="glide__slide lista-presentacion">
+
+                                </li>
+                                <li class="glide__slide lista-presentacion">
+
+                                </li>
+                                <li class="glide__slide lista-presentacion">
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                    class="fas fa-chevron-left"></i></button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                    class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- FIN HEADER -->
+    <section class="peliculas-populares bgo">
+        <div class="contenedor-peliculas">
+            <h2>PELICULAS POPULARES</h2>
+            <div class="contenedor-slider slider-peliculas">
+                <div class="slider-glide glide">
+                    <div data-glide-el="track" class="glide__track">
+                        <ul class="slider-peliculas glide__slides">
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="series-populares bgo">
+        <div class="contenedor-series">
+            <h2>SERIES POPULARES</h2>
+            <div class="contenedor-slider-series slider-series">
+                <div class="slider-glide-series glide">
+                    <div data-glide-el="track" class="glide__track">
+                        <ul class="slider-series glide__slides">
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                            <li class="glide__slide">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"
+        integrity="sha512-BXASbMmKLu+RC5TDnkupyhvrjiOQXILh/5zgIS8k5JAC71a73lNweVEg/X+9XJQ7GK22PH9WpztY3zqrji+xrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
 </html>
