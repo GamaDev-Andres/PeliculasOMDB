@@ -40,10 +40,10 @@ const config2 = {
       perView: 4,
     },
     480: {
-      perView: 3,
+      perView: 2,
     },
   },
 };
-export const glide = new Glide(".glide", config).mount();
-export const glidePelis = new Glide(".slider-glide", config2).mount();
-export const glideSeries = new Glide(".slider-glide-series", config2).mount();
+new Glide(".glide", config).mount();
+new Glide(".slider-glide", config2).mount();
+new Glide(".slider-glide-series", config2).mount();

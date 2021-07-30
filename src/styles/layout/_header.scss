@@ -9,7 +9,7 @@
       @include tablet {
         position: fixed;
         top: 0;
-        z-index: 1;
+        z-index: 5;
         width: 100%;
         padding: 10px 0;
         background-color: $nc;
@@ -119,6 +119,9 @@
           // gap: 3rem;
         }
       }
+      @include telefono {
+        width: 100%;
+      }
       // FIN RESPONSIVE TABLET
       ul {
         // gap: 1rem;
@@ -165,11 +168,16 @@ form#search-presentacion {
   grid-template-columns: 50% 50%;
   gap: 2rem;
   margin: 0 auto;
-
   @include tablet {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr;
+  }
+  @include telefono {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+    margin-top: 49px;
   }
   .presentacion-interaccion {
     @include flex(column);

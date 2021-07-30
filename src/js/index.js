@@ -1,28 +1,34 @@
 import "../styles/style.scss";
-import { glide, glidePelis, glideSeries } from "./glide";
-import { consultaApiPresentacion, llenandoSlider } from "./fetchPresentacion";
+import { consultaApi, llenandoSlider } from "./fetchsAPI";
 import abrirCerrarMenu from "./abrirCerrarMenu";
-import { consultaApi } from "./fetchPelisPoulares";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // FETCH PRESENTACION
-  let resultadosPresentacion = consultaApiPresentacion();
-  resultadosPresentacion.then((rta) =>
-    llenandoSlider(rta, ".slider-presentacion")
-  );
-
-  // FETCH DE PELICULAS
-  let resultadosPeliculas = consultaApi(
-    "https://imdb-api.com/en/API/MostPopularMovies/k_ddtp65e3"
-  );
-  resultadosPeliculas.then((rta) => {
-    console.log(rta);
-    llenandoSlider(rta, ".slider-peliculas");
-  });
-  let resultadosSeries = consultaApi(
-    "https://imdb-api.com/en/API/MostPopularTVs/k_ddtp65e3"
-  );
-  resultadosSeries.then((rta) => llenandoSlider(rta, ".slider-series"));
-
   abrirCerrarMenu();
+  // FETCH PRESENTACION
+  let objConsultasAPI = localStorage.getItem("objConsultasAPI");
+  let resultadosAPI = null;
+  //guardando en localStorage , para minimizar consultas
+  if (!objConsultasAPI) {
+    resultadosAPI = consultaApi();
+    resultadosAPI.then((rta) => {
+      llenadoGeneralSliders(rta);
+      localStorage.setItem("objConsultasAPI", JSON.stringify(rta));
+    });
+  } else {
+    resultadosAPI = JSON.parse(objConsultasAPI);
+    llenadoGeneralSliders(resultadosAPI);
+  }
 });
+
+function llenadoGeneralSliders(rta) {
+  if (location.pathname === "/" || location.pathname === "/index.html") {
+    llenandoSlider(rta.recomendados, ".slider-presentacion");
+    llenandoSlider(rta.arregloMovies.slice(0, 10), ".slider-peliculas");
+    llenandoSlider(rta.arregloSeries.slice(0, 10), ".slider-series");
+  } else if (location.pathname === "/peliculas.html") {
+    llenandoSlider(rta.arregloMovies.slice(0, 10), ".slider-peliculas-page");
+    llenandoSlider(rta.arregloEstrenos, ".slider-estrenos");
+  } else if (location.pathname === "/series.html") {
+    llenandoSlider(rta.arregloSeries.slice(0, 10), ".slider-popu-series");
+  }
+}

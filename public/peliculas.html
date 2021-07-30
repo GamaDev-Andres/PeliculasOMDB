@@ -57,7 +57,7 @@
                 </div>
             </nav>
             <!-- PRESENTACION -->
-            <div class="contenedor-presentacion">
+            <div class="contenedor-presentacion pages">
                 <div class="presentacion-interaccion">
                     <div class="texto-presentacion">
                         <h2>Peliculas y Series gratis Online</h2>
@@ -71,7 +71,7 @@
                     <form id="search-presentacion">
                         <div class="contenedor-buscador">
                             <div class="buscador-presentacion buscador">
-                                <input type="search" placeholder="Escribe y pulsa enter" />
+                                <input name="peliculas"type="search" placeholder="Escribe y pulsa enter" />
                             </div>
                             <button class="btn-search-presentacion">
                                 <i class="fas fa-search"></i>
@@ -79,51 +79,19 @@
                         </div>
                     </form>
                 </div>
-                <div class="slider-populares">
-                    <div class="glide">
-                        <div data-glide-el="track" class="glide__track">
-                            <ul class="slider-presentacion glide__slides">
-                                <li class="glide__slide lista-presentacion">
-
-                                </li>
-                                <li class="glide__slide lista-presentacion">
-
-                                </li>
-                                <li class="glide__slide lista-presentacion">
-
-
-                                </li>
-                                <li class="glide__slide lista-presentacion">
-
-                                </li>
-                                <li class="glide__slide lista-presentacion">
-
-                                </li>
-                                <li class="glide__slide lista-presentacion">
-
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="glide__arrows" data-glide-el="controls">
-                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
-                                    class="fas fa-chevron-left"></i></button>
-                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
-                                    class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         </div>
     </header>
     <!-- FIN HEADER -->
     <section class="peliculas-populares section-oscuro">
-        <div class="contenedor-peliculas">
+        <div class="contenedor-peliculas contenedor">
             <h2>PELICULAS POPULARES</h2>
             <div class="contenedor-slider slider-peliculas">
                 <div class="slider-glide glide">
                     <div data-glide-el="track" class="glide__track">
-                        <ul class="slider-peliculas glide__slides">
+                        <ul class="slider-peliculas-page glide__slides">
                             <li class="glide__slide">
                             </li>
                             <li class="glide__slide">
@@ -156,13 +124,13 @@
             </div>
         </div>
     </section>
-    <section class="series-populares section-claro">
-        <div class="contenedor-series">
-            <h2>SERIES POPULARES</h2>
-            <div class="contenedor-slider-series slider-series">
-                <div class="slider-glide-series glide">
+    <section class="peliculas-estrenos section-claro">
+        <div class="contenedor-estrenos contenedor">
+            <h2>PROXIMAS PELICULAS</h2>
+            <div class="contenedor-slider-estrenos slider-estrenos">
+                <div class="slider-glide-estrenos glide">
                     <div data-glide-el="track" class="glide__track">
-                        <ul class="slider-series glide__slides">
+                        <ul class="slider-estrenos glide__slides">
                             <li class="glide__slide">
                             </li>
                             <li class="glide__slide">
@@ -204,7 +172,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"
         integrity="sha512-BXASbMmKLu+RC5TDnkupyhvrjiOQXILh/5zgIS8k5JAC71a73lNweVEg/X+9XJQ7GK22PH9WpztY3zqrji+xrQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="../src/js/glide.js"></script>
+        <script src="../src/js/glidePagePelis.js"></script>
 </body>
 
 </html>

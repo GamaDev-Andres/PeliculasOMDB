@@ -1,0 +1,18 @@
+.section-claro,
+.section-oscuro {
+  padding: 1rem 0;
+  width: 100%;
+  .contenedor {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.section-oscuro {
+  background-color: $nc;
+}
+.pages {
+  @include flex(row);
+  @include tablet {
+    margin-top: 49px;
+  }
+}
