@@ -1,0 +1,23 @@
+main {
+    background-color: $nc;
+    min-height: 60vh;
+
+    .titulo-main {
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
+    }
+}
+.contenedor-listado {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    .botones {
+        width: 100%;
+        @include flex(row);
+        justify-content: space-evenly;
+    }
+}
