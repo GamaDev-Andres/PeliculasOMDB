@@ -63,8 +63,8 @@ export function llenandoSlider(arr, clase) {
             </div>
              <div class="descripcion">
                 <h3 title="${arr[index].title}" ><a href="index.html">${
-            arr[index].title.length > 10
-                ? arr[index].title.slice(0, 7) + "..."
+            arr[index].title.length > 15
+                ? arr[index].title.slice(0, 12) + "..."
                 : arr[index].title
         }</a></h3>
                 <div class="generos">

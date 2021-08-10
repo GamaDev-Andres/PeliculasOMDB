@@ -2,23 +2,43 @@ import "../styles/style.scss";
 import { consultaApi, llenandoSlider } from "./fetchsAPI";
 import abrirCerrarMenu from "./abrirCerrarMenu";
 import { llenandoContenedor } from "./llenandoContenedor";
+import { scrollInfinito } from "./scrollInfinito";
 
 document.addEventListener("DOMContentLoaded", () => {
     abrirCerrarMenu();
     // FETCH PRESENTACION
-    let objConsultasAPI = localStorage.getItem("objConsultasAPI");
+    let objConsultasAPI = sessionStorage.getItem("objConsultasAPI");
     let resultadosAPI = null;
-    //guardando en localStorage , para minimizar consultas
+    //guardando en sessionStorage , para minimizar consultas
     if (!objConsultasAPI) {
         resultadosAPI = consultaApi();
         resultadosAPI.then((rta) => {
             llenandoContenido(rta);
-            localStorage.setItem("objConsultasAPI", JSON.stringify(rta));
+            sessionStorage.setItem("objConsultasAPI", JSON.stringify(rta));
         });
     } else {
         resultadosAPI = JSON.parse(objConsultasAPI);
         llenandoContenido(resultadosAPI);
     }
+
+    //SCROLL INFINITO
+
+    const contenedor = document.querySelector(".top-250");
+    const footer = document.querySelector("#footer");
+    const options = {
+        treshold: 0.01,
+    };
+    const observer = new IntersectionObserver((entries) => {
+        const objArr = scrollInfinito(entries);
+        // console.log(entries);
+        // console.log(objArr);
+        if (objArr) {
+            llenandoContenedor(objArr.arr250, objArr.id);
+            verMasTardeLS();
+        }
+    }, options);
+    observer.observe(footer);
+    // console.log("OBSERVER :", observer);
     // funcion agregado de ver mas tarde
     verMasTardeLS();
     //funcion eliminado ver mas tarde
@@ -55,10 +75,10 @@ function verMasTardeLS() {
     nodeListBtnsAgregar.forEach((el) => {
         el.addEventListener("click", () => {
             let objVerMasTarde = {};
-            objVerMasTarde.img =
+            objVerMasTarde.image =
                 el.parentElement.parentElement.previousElementSibling.children[0].src;
 
-            objVerMasTarde.titulo =
+            objVerMasTarde.title =
                 el.parentElement.parentElement.children[0].children[0].textContent;
             objVerMasTarde.id = el.id;
             if (!arrayListVerMasTarde.some((obj) => obj.id == el.id)) {
@@ -72,10 +92,10 @@ function verMasTardeLS() {
         });
     });
 }
-//ELIMINA ELEMENTOS DEL LOCALSTORAGE DEL ARR DE VER MAS TARDE y AGREGA EVENTOS
+//ELIMINA ELEMENTOS DEL localStorage DEL ARR DE VER MAS TARDE y AGREGA EVENTOS
 function eliminarVerMasTarde() {
     const nodeListBtnsEliminar = document.querySelectorAll(".eliminar");
-    console.log(nodeListBtnsEliminar);
+    // console.log(nodeListBtnsEliminar);
     nodeListBtnsEliminar.forEach((el) => {
         el.addEventListener("click", (e) => {
             const arregloVerMasTarde =

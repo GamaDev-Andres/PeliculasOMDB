@@ -1,0 +1,8 @@
+.contenedor-top-250 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
