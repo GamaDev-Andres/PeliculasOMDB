@@ -28,13 +28,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const options = {
         treshold: 0.01,
     };
+    let auxInicio = 0;
+    let auxFinal = 25;
     const observer = new IntersectionObserver((entries) => {
+        if (auxInicio === 225) {
+            alert("Ya no hay mas contenido");
+            return;
+        }
         const objArr = scrollInfinito(entries);
-        // console.log(entries);
-        // console.log(objArr);
         if (objArr) {
-            llenandoContenedor(objArr.arr250, objArr.id);
+            console.log(auxInicio);
+            llenandoContenedor(
+                objArr.arr250.slice(auxInicio, auxFinal),
+                objArr.id
+            );
             verMasTardeLS();
+            auxInicio += 25;
+            auxFinal += 25;
+            console.log(auxInicio);
         }
     }, options);
     observer.observe(footer);
