@@ -1,8 +1,9 @@
 import "../styles/style.scss";
-import { consultaApi, llenandoSlider } from "./fetchsAPI";
+import { consultaApi, consultaApiBusqueda, llenandoSlider } from "./fetchsAPI";
 import abrirCerrarMenu from "./abrirCerrarMenu";
 import { llenandoContenedor } from "./llenandoContenedor";
 import { scrollInfinito } from "./scrollInfinito";
+import { busquedaApi } from "./busqueda";
 
 document.addEventListener("DOMContentLoaded", () => {
     abrirCerrarMenu();
@@ -20,10 +21,59 @@ document.addEventListener("DOMContentLoaded", () => {
         resultadosAPI = JSON.parse(objConsultasAPI);
         llenandoContenido(resultadosAPI);
     }
+    //agregando funcionalidad de busqueda
+    const formSearch = document.querySelector("#search-presentacion");
+    const botonSearch = document.querySelector("#boton-busqueda");
+    //evento al formulario
+    if (formSearch && botonSearch) {
+        const sectionBusquedas = document.querySelector(".contenedor-busqueda");
+        formSearch.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const resultadosBusqueda = busquedaApi(formSearch);
 
+            resultadosBusqueda.then((rta) => {
+                console.log(rta);
+                sectionBusquedas.style.display = "block";
+                sectionBusquedas.innerHTML = "";
+                sectionBusquedas.insertAdjacentHTML(
+                    "afterbegin",
+                    `<h2>Resultados de tu busqueda.</h2>
+                    <div id="contenedor-busqueda" class="contenedor">
+            
+        </div>`
+                );
+
+                llenandoContenedor(rta, "contenedor-busqueda");
+                verMasTardeLS();
+            });
+            console.log(resultadosBusqueda);
+            formSearch.reset();
+            // verMasTardeLS();
+        });
+        //evento al boton
+        botonSearch.addEventListener("click", (e) => {
+            e.preventDefault();
+            const resultadosBusqueda = busquedaApi(formSearch);
+            resultadosBusqueda.then((rta) => {
+                console.log(rta);
+                sectionBusquedas.style.display = "block";
+                sectionBusquedas.innerHTML = "";
+
+                sectionBusquedas.insertAdjacentHTML(
+                    "afterbegin",
+                    `<h2>Resultados de tu busqueda.</h2>
+                    <div id="contenedor-busqueda" class="contenedor">
+            
+        </div>`
+                );
+                llenandoContenedor(rta, "contenedor-busqueda");
+                verMasTardeLS();
+            });
+            formSearch.reset();
+        });
+    }
     //SCROLL INFINITO
 
-    const contenedor = document.querySelector(".top-250");
     const footer = document.querySelector("#footer");
     const options = {
         treshold: 0.01,
@@ -32,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let auxFinal = 25;
     const observer = new IntersectionObserver((entries) => {
         if (auxInicio === 225) {
-            alert("Ya no hay mas contenido");
+            // alert("Ya no hay mas contenido");
             return;
         }
         const objArr = scrollInfinito(entries);

@@ -17,11 +17,13 @@ export function llenandoContenedor(arr, id) {
             el.title.length > 15 ? el.title.slice(0, 12) + "..." : el.title
         }</a></h3>
         ${
-            id.startsWith("250")
+            id.startsWith("250") || id === "contenedor-busqueda"
                 ? `<div class="generos">
 
-                    <p>${el.year}</p>
-                    <button class="agregar" id="${el.id}" title="ver mas tarde"><i class="fas fa-plus-circle"></i></button>
+                    <p>${el.year || el.description}</p>
+                    <button class="agregar" id="${
+                        el.id
+                    }" title="ver mas tarde"><i class="fas fa-plus-circle"></i></button>
                 </div>`
                 : `<div class="botones">                 
                     <button class="boton eliminar">Eliminar</button>

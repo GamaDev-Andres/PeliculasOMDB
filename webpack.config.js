@@ -84,6 +84,7 @@ module.exports = {
             template: "./public/listado.html",
             filename: "./listado.html",
         }),
+
         new MiniCssExtractPlugin({
             filename: "assets / [name][contenthash].css",
         }),

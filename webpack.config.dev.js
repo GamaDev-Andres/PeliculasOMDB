@@ -40,7 +40,7 @@ module.exports = {
                             publicPath: "../",
                         },
                     },
-                    "css-loader",
+                    { loader: "css-loader", options: { sourceMap: true } },
                     "resolve-url-loader",
                     {
                         loader: "sass-loader",
@@ -80,6 +80,7 @@ module.exports = {
             template: "./public/listado.html",
             filename: "./listado.html",
         }),
+
         new MiniCssExtractPlugin({
             filename: "assets / [name][contenthash].css",
         }),
