@@ -6,7 +6,6 @@ export async function consultaApi() {
         );
         // resultados series populares
         const res = await resultado.json();
-        // console.log(res);
         if (res.errorMessage) throw alert("Peticiones a la API sobrepasadas");
         const arregloSeries = res.items;
         const [primero, segundo, tercero] = arregloSeries;
@@ -47,15 +46,12 @@ export async function consultaApi() {
             arreglo250Series,
             arregloEstrenos,
         };
-    } catch (error) {
-        console.log(error);
-    }
+    } catch (error) {}
 }
 export function llenandoSlider(arr, clase) {
     const listas = document.querySelectorAll(`${clase} li`);
 
     listas.forEach((el, index) => {
-        // console.log(arr);
         el.innerHTML = `
         <div class="card">
             <div class="imagen">

@@ -24,54 +24,45 @@ document.addEventListener("DOMContentLoaded", () => {
     //agregando funcionalidad de busqueda
     const formSearch = document.querySelector("#search-presentacion");
     const botonSearch = document.querySelector("#boton-busqueda");
+
     //evento al formulario
     if (formSearch && botonSearch) {
         const sectionBusquedas = document.querySelector(".contenedor-busqueda");
+        const contenedorBusquedas = document.querySelector(
+            "#contenedor-busqueda"
+        );
+
+        //evento al submit
         formSearch.addEventListener("submit", (e) => {
             e.preventDefault();
             const resultadosBusqueda = busquedaApi(formSearch);
-
             resultadosBusqueda.then((rta) => {
-                console.log(rta);
-                sectionBusquedas.style.display = "block";
-                sectionBusquedas.innerHTML = "";
-                sectionBusquedas.insertAdjacentHTML(
-                    "afterbegin",
-                    `<h2>Resultados de tu busqueda.</h2>
-                    <div id="contenedor-busqueda" class="contenedor">
-            
-        </div>`
-                );
+                if (rta === null) {
+                    alert("Se sobrepaso el limite de consultas de la API");
+                } else if (rta.length === 0) {
+                    alert("No hay resultado relacionado con su busqueda-");
+                }
 
                 llenandoContenedor(rta, "contenedor-busqueda");
-                verMasTardeLS();
-            });
-            console.log(resultadosBusqueda);
-            formSearch.reset();
-            // verMasTardeLS();
-        });
-        //evento al boton
-        botonSearch.addEventListener("click", (e) => {
-            e.preventDefault();
-            const resultadosBusqueda = busquedaApi(formSearch);
-            resultadosBusqueda.then((rta) => {
-                console.log(rta);
-                sectionBusquedas.style.display = "block";
-                sectionBusquedas.innerHTML = "";
 
-                sectionBusquedas.insertAdjacentHTML(
-                    "afterbegin",
-                    `<h2>Resultados de tu busqueda.</h2>
-                    <div id="contenedor-busqueda" class="contenedor">
-            
-        </div>`
-                );
-                llenandoContenedor(rta, "contenedor-busqueda");
                 verMasTardeLS();
             });
             formSearch.reset();
+            sectionBusquedas.style.display = "block";
+            contenedorBusquedas.innerHTML = "";
+            if (sectionBusquedas.childElementCount === 1) {
+                sectionBusquedas.insertAdjacentHTML(
+                    "afterbegin",
+                    `<h2>Resultados de tu busqueda.</h2>
+                        `
+                );
+            }
+            let urlOrigin = location.origin;
+            let urlPathname = location.pathname;
+            location.href = `${urlOrigin}${urlPathname}#contenedor-busqueda`;
         });
     }
+
     //SCROLL INFINITO
 
     const footer = document.querySelector("#footer");
@@ -82,12 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let auxFinal = 25;
     const observer = new IntersectionObserver((entries) => {
         if (auxInicio === 225) {
-            // alert("Ya no hay mas contenido");
             return;
         }
         const objArr = scrollInfinito(entries);
         if (objArr) {
-            console.log(auxInicio);
             llenandoContenedor(
                 objArr.arr250.slice(auxInicio, auxFinal),
                 objArr.id
@@ -95,11 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
             verMasTardeLS();
             auxInicio += 25;
             auxFinal += 25;
-            console.log(auxInicio);
         }
     }, options);
     observer.observe(footer);
-    // console.log("OBSERVER :", observer);
     // funcion agregado de ver mas tarde
     verMasTardeLS();
     //funcion eliminado ver mas tarde
@@ -156,13 +143,11 @@ function verMasTardeLS() {
 //ELIMINA ELEMENTOS DEL localStorage DEL ARR DE VER MAS TARDE y AGREGA EVENTOS
 function eliminarVerMasTarde() {
     const nodeListBtnsEliminar = document.querySelectorAll(".eliminar");
-    // console.log(nodeListBtnsEliminar);
     nodeListBtnsEliminar.forEach((el) => {
         el.addEventListener("click", (e) => {
             const arregloVerMasTarde =
                 JSON.parse(localStorage.getItem("arrayListVerMasTarde")) || [];
-            console.log("gola");
-            console.log(e.target);
+
             let nuevoArr = arregloVerMasTarde.filter(
                 (obj) =>
                     obj.id !==

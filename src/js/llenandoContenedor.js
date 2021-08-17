@@ -4,8 +4,6 @@ export function llenandoContenedor(arr, id) {
     const contenedor = document.getElementById(id);
     let fragmento = document.createDocumentFragment();
     arr.forEach((el) => {
-        // console.log(el);
-        // console.log(arr);
         let div = document.createElement("div");
         div.innerHTML = `
         <div class="card"  id="${el.id}"  >
@@ -39,5 +37,4 @@ export function llenandoContenedor(arr, id) {
     });
 
     contenedor.appendChild(fragmento);
-    // console.log(fragmento);
 }
