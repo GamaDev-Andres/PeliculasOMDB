@@ -1,4 +1,3 @@
-// import { eliminarVerMasTarde } from ".";
 // HACE UNA GRILLA DE CARDS
 export function llenandoContenedor(arr, id) {
     const contenedor = document.getElementById(id);

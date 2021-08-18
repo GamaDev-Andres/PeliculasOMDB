@@ -21,6 +21,10 @@ li {
 }
 a {
     text-decoration: none;
+    &.activo {
+        color: $ac !important;
+        border-bottom: 1px solid $ac;
+    }
 }
 p {
     color: $bl;

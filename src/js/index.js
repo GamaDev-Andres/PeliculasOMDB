@@ -174,7 +174,6 @@ function buttonDetalles() {
     botonesVer.forEach((el) => {
         el.addEventListener("click", () => {
             const atributoVerId = el.getAttribute("verId");
-            console.log(atributoVerId);
             location.href = `/detalles.html?id=${atributoVerId}`;
         });
     });

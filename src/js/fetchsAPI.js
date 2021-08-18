@@ -55,11 +55,7 @@ export function llenandoSlider(arr, clase) {
 
     let listas = document.querySelectorAll(`${clase} li`);
     const listadoActualizado = Array.from(listas).slice(0, arr.length);
-    console.log(listadoActualizado);
-    console.log(listas.length);
-    console.log(listadoActualizado.length);
     listadoActualizado.forEach((el, index) => {
-        // console.log(arr[index]);
         el.innerHTML = `
         <div class="card">
             <div class="imagen">

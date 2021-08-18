@@ -6,33 +6,57 @@
     display: grid;
     grid-template-columns: 30% calc(70% - 2rem);
     gap: 2rem;
+    @include tablet {
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+    }
     h4 {
         text-align: start;
         margin-top: 0;
     }
     .poster {
-        // padding: 1rem;
         img {
             object-fit: cover;
             width: 100%;
         }
     }
     .container {
-        // padding: 1rem;
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
+        @include tablet {
+            grid-template-rows: min-content;
+        }
+
         .detalles {
             display: flex;
             justify-content: space-between;
+            @include tablet {
+                flex-direction: column;
+                // justify-content:    ;
+                align-items: flex-start;
+            }
         }
     }
 }
 #contenedor-trailer {
     width: 100%;
     height: 100vh;
-    // margin: 0 auto;
+    @include tablet {
+        position: relative;
+        padding-bottom: 66.66%;
+        height: 0;
+        overflow: hidden;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            // right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
     iframe {
         display: block;
         margin: 0 auto;

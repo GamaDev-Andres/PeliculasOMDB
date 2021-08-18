@@ -5,9 +5,7 @@ const config = {
     focusAt: 0,
     gap: 14,
     autoplay: 3000,
-    // size: {
-    //     width: 1,
-    // },
+
     bound: true,
     breakpoints: {
         1100: {
@@ -28,9 +26,7 @@ const config2 = {
     focusAt: 0,
     gap: 14,
     autoplay: 3000,
-    // size: {
-    //     width: 1,
-    // },
+
     bound: true,
     breakpoints: {
         1100: {
