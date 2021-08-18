@@ -40,7 +40,11 @@ const config2 = {
         },
     },
 };
-if (location.pathname === "/" || location.pathname === "/index.html") {
+if (
+    location.pathname === "/" ||
+    location.pathname === "/index.html" ||
+    location.pathname === "/dist/index.html"
+) {
     new Glide(".glide", config).mount();
     new Glide(".slider-glide", config2).mount();
     new Glide(".slider-glide-series", config2).mount();

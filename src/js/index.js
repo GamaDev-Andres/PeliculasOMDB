@@ -10,7 +10,10 @@ import "./glidePagePelis";
 import "./glidePageSeries";
 document.addEventListener("DOMContentLoaded", () => {
     //Agrego funcionalidad de consulta a la pag de detalles
-    if (location.pathname === "/detalles.html") {
+    if (
+        location.pathname === "/detalles.html" ||
+        location.pathname === "/dist/detalles.html"
+    ) {
         ConsultaAPIforId();
     }
     abrirCerrarMenu();
@@ -102,19 +105,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //PRESENTA TODAS LAS FUNCIONES QUE LLENAN LOS SLIDERS
 function llenandoContenido(rta) {
-    if (location.pathname === "/" || location.pathname === "/index.html") {
+    if (
+        location.pathname === "/" ||
+        location.pathname === "/index.html" ||
+        location.pathname === "/dist/index.html"
+    ) {
         llenandoSlider(rta.recomendados, ".slider-presentacion");
         llenandoSlider(rta.arregloMovies.slice(0, 10), ".slider-peliculas");
         llenandoSlider(rta.arregloSeries.slice(0, 10), ".slider-series");
-    } else if (location.pathname === "/peliculas.html") {
+    } else if (
+        location.pathname === "/peliculas.html" ||
+        location.pathname === "/dist/peliculas.html"
+    ) {
         llenandoSlider(
             rta.arregloMovies.slice(0, 10),
             ".slider-peliculas-page"
         );
         llenandoSlider(rta.arregloEstrenos, ".slider-estrenos");
-    } else if (location.pathname === "/series.html") {
+    } else if (
+        location.pathname === "/series.html" ||
+        location.pathname === "/dist/series.html"
+    ) {
         llenandoSlider(rta.arregloSeries.slice(0, 10), ".slider-popu-series");
-    } else if (location.pathname === "/listado.html") {
+    } else if (
+        location.pathname === "/listado.html" ||
+        location.pathname === "/dist/listado.html"
+    ) {
         const arregloListado = JSON.parse(
             localStorage.getItem("arrayListVerMasTarde")
         );

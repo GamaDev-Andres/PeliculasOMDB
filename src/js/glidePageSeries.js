@@ -19,6 +19,9 @@ const config2 = {
         },
     },
 };
-if (location.pathname === "/series.html") {
+if (
+    location.pathname === "/series.html" ||
+    location.pathname === "/dist/series.html"
+) {
     new Glide(".slider-glide", config2).mount();
 }

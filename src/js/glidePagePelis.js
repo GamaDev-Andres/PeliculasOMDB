@@ -19,7 +19,10 @@ const config2 = {
         },
     },
 };
-if (location.pathname === "/peliculas.html") {
+if (
+    location.pathname === "/peliculas.html" ||
+    location.pathname === "/dist/peliculas.html"
+) {
     new Glide(".slider-glide-estrenos", config2).mount();
     new Glide(".slider-glide", config2).mount();
 }
