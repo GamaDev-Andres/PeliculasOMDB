@@ -19,4 +19,6 @@ const config2 = {
         },
     },
 };
-new Glide(".slider-glide", config2).mount();
+if (location.pathname === "/series.html") {
+    new Glide(".slider-glide", config2).mount();
+}

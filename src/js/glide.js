@@ -40,6 +40,8 @@ const config2 = {
         },
     },
 };
-new Glide(".glide", config).mount();
-new Glide(".slider-glide", config2).mount();
-new Glide(".slider-glide-series", config2).mount();
+if (location.pathname === "/" || location.pathname === "/index.html") {
+    new Glide(".glide", config).mount();
+    new Glide(".slider-glide", config2).mount();
+    new Glide(".slider-glide-series", config2).mount();
+}

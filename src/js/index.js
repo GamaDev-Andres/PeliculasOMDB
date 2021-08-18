@@ -5,6 +5,9 @@ import { llenandoContenedor } from "./llenandoContenedor";
 import { scrollInfinito } from "./scrollInfinito";
 import { busquedaApi } from "./busqueda";
 import { ConsultaAPIforId } from "./detalles";
+import "./glide";
+import "./glidePagePelis";
+import "./glidePageSeries";
 document.addEventListener("DOMContentLoaded", () => {
     //Agrego funcionalidad de consulta a la pag de detalles
     if (location.pathname === "/detalles.html") {
