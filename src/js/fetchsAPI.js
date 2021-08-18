@@ -46,19 +46,29 @@ export async function consultaApi() {
             arreglo250Series,
             arregloEstrenos,
         };
-    } catch (error) {}
+    } catch (error) {
+        console.log(error);
+    }
 }
 export function llenandoSlider(arr, clase) {
-    const listas = document.querySelectorAll(`${clase} li`);
+    const ul = document.querySelector(clase);
 
-    listas.forEach((el, index) => {
+    let listas = document.querySelectorAll(`${clase} li`);
+    const listadoActualizado = Array.from(listas).slice(0, arr.length);
+    console.log(listadoActualizado);
+    console.log(listas.length);
+    console.log(listadoActualizado.length);
+    listadoActualizado.forEach((el, index) => {
+        // console.log(arr[index]);
         el.innerHTML = `
         <div class="card">
             <div class="imagen">
               <img src="${arr[index].image}">
             </div>
              <div class="descripcion">
-                <h3 title="${arr[index].title}" ><a href="index.html">${
+                <h3 title="${arr[index].title}" ><a href="detalles.html?id=${
+            arr[index].id
+        }">${
             arr[index].title.length > 15
                 ? arr[index].title.slice(0, 12) + "..."
                 : arr[index].title

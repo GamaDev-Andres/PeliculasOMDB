@@ -1,40 +1,40 @@
 {
-  "name": "proyectoomdb",
-  "version": "1.0.0",
-  "description": "consulto api de omdb y maqueto sus resultados",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js",
-    "dev": "webpack --config webpack.config.dev.js",
-    "start": "webpack serve --config webpack.config.dev.js"
-  },
-  "keywords": [
-    "html",
-    "css",
-    "js",
-    "webpack",
-    "sass"
-  ],
-  "author": "Andres Gama",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "css-loader": "^5.2.6",
-    "css-minimizer-webpack-plugin": "^3.0.1",
-    "html-loader": "^2.1.2",
-    "html-webpack-plugin": "^5.3.1",
-    "mini-css-extract-plugin": "^1.6.0",
-    "resolve-url-loader": "^4.0.0",
-    "sass": "^1.34.1",
-    "sass-loader": "^12.0.0",
-    "terser-webpack-plugin": "^5.1.3",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
-  }
+    "name": "proyectoomdb",
+    "version": "1.0.0",
+    "description": "consulto api de omdb y maqueto sus resultados",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js",
+        "dev": "webpack --config webpack.config.dev.js",
+        "start": "webpack serve --config webpack.config.dev.js"
+    },
+    "keywords": [
+        "html",
+        "css",
+        "js",
+        "webpack",
+        "sass"
+    ],
+    "author": "Andres Gama",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/plugin-transform-runtime": "^7.14.3",
+        "@babel/preset-env": "^7.14.4",
+        "babel-loader": "^8.2.2",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "css-loader": "^5.2.6",
+        "css-minimizer-webpack-plugin": "^3.0.1",
+        "html-loader": "^2.1.2",
+        "html-webpack-plugin": "^5.3.1",
+        "mini-css-extract-plugin": "^1.6.0",
+        "resolve-url-loader": "^4.0.0",
+        "sass": "^1.34.1",
+        "sass-loader": "^12.0.0",
+        "terser-webpack-plugin": "^5.1.3",
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.7.0",
+        "webpack-dev-server": "^3.11.2"
+    }
 }

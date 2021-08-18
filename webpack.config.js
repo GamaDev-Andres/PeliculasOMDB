@@ -84,6 +84,11 @@ module.exports = {
             template: "./public/listado.html",
             filename: "./listado.html",
         }),
+        new HtmlWebpackPlugin({
+            inject: "body",
+            template: "./public/detalles.html",
+            filename: "./detalles.html",
+        }),
 
         new MiniCssExtractPlugin({
             filename: "assets / [name][contenthash].css",

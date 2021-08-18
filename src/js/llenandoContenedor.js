@@ -11,7 +11,7 @@ export function llenandoContenedor(arr, id) {
               <img src="${el.image}">
             </div>
              <div class="descripcion">
-                <h3 title="${el.title}"><a href="index.html">${
+                <h3 title="${el.title}"><a href="detalles.html?id=${el.id}">${
             el.title.length > 15 ? el.title.slice(0, 12) + "..." : el.title
         }</a></h3>
         ${
@@ -25,7 +25,7 @@ export function llenandoContenedor(arr, id) {
                 </div>`
                 : `<div class="botones">                 
                     <button class="boton eliminar">Eliminar</button>
-                    <button class="boton ver" >Ver</button>
+                    <button class="boton ver" verId=${el.id} >Ver</button>
                 </div>`
         }
                 

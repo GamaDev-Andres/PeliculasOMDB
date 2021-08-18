@@ -1,11 +1,15 @@
 import "../styles/style.scss";
-import { consultaApi, consultaApiBusqueda, llenandoSlider } from "./fetchsAPI";
+import { consultaApi, llenandoSlider } from "./fetchsAPI";
 import abrirCerrarMenu from "./abrirCerrarMenu";
 import { llenandoContenedor } from "./llenandoContenedor";
 import { scrollInfinito } from "./scrollInfinito";
 import { busquedaApi } from "./busqueda";
-
+import { ConsultaAPIforId } from "./detalles";
 document.addEventListener("DOMContentLoaded", () => {
+    //Agrego funcionalidad de consulta a la pag de detalles
+    if (location.pathname === "/detalles.html") {
+        ConsultaAPIforId();
+    }
     abrirCerrarMenu();
     // FETCH PRESENTACION
     let objConsultasAPI = sessionStorage.getItem("objConsultasAPI");
@@ -23,10 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     //agregando funcionalidad de busqueda
     const formSearch = document.querySelector("#search-presentacion");
-    const botonSearch = document.querySelector("#boton-busqueda");
 
     //evento al formulario
-    if (formSearch && botonSearch) {
+    if (formSearch) {
         const sectionBusquedas = document.querySelector(".contenedor-busqueda");
         const contenedorBusquedas = document.querySelector(
             "#contenedor-busqueda"
@@ -91,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
     verMasTardeLS();
     //funcion eliminado ver mas tarde
     eliminarVerMasTarde();
+    //funcion vista detalles
+    buttonDetalles();
 });
 //PRESENTA TODAS LAS FUNCIONES QUE LLENAN LOS SLIDERS
 function llenandoContenido(rta) {
@@ -160,6 +165,17 @@ function eliminarVerMasTarde() {
             );
             const contenedor = document.querySelector("#contenedor-listado");
             contenedor.removeChild(e.path[4]);
+        });
+    });
+}
+//VER ID , HABILITANDO BOTON VISTA DETALLES
+function buttonDetalles() {
+    const botonesVer = document.querySelectorAll(".ver");
+    botonesVer.forEach((el) => {
+        el.addEventListener("click", () => {
+            const atributoVerId = el.getAttribute("verId");
+            console.log(atributoVerId);
+            location.href = `/detalles.html?id=${atributoVerId}`;
         });
     });
 }
